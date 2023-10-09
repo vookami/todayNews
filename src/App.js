@@ -9,7 +9,7 @@ function News({ onBack }) {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await axios.get("/api/get-news");
+        const response = await axios.get("/.netlify/functions/get-news");
         setArticles(response.data.articles);
       } catch (error) {
         console.error("Failed to fetch news:", error.message);
