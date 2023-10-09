@@ -1,13 +1,6 @@
-const express = require("express");
 const axios = require("axios");
-const cors = require("cors");
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-app.use(cors());
-
-app.get("/api/news", async (req, res) => {
+exports.handler = async function (event, context) {
   try {
     const response = await axios.get("https://newsapi.org/v2/top-headlines", {
       params: {
@@ -17,13 +10,15 @@ app.get("/api/news", async (req, res) => {
         pageSize: 20,
       },
     });
-    res.json(response.data);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response.data),
+    };
   } catch (error) {
     console.error("Error fetching news:", error.message);
-    res.status(500).send("Server Error");
+    return {
+      statusCode: 500,
+      body: "Server Error",
+    };
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+};

@@ -1,3 +1,4 @@
+// 正确的导入顺序
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
@@ -8,7 +9,7 @@ function News({ onBack }) {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await axios.get("/api/news");
+        const response = await axios.get("/.netlify/functions/get-news");
         setArticles(response.data.articles);
       } catch (error) {
         console.error("Failed to fetch news:", error.message);
