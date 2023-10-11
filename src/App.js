@@ -1,58 +1,60 @@
-// 正确的导入顺序
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import "./Button.css"; // Assume you have created Button.css for the new button styles
 
-function News({ onBack }) {
-  const [articles, setArticles] = useState([]);
+function App() {
+  const [news, setNews] = useState([]);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchNews() {
-      try {
-        const response = await axios.get("/.netlify/functions/get-news");
-        setArticles(response.data.articles);
-      } catch (error) {
-        console.error("Failed to fetch news:", error.message);
-      }
+  // Function to fetch news based on country
+  const fetchNews = async (country) => {
+    try {
+      const response = await axios.get("/.netlify/functions/get-news", {
+        params: { country },
+      });
+      setNews(response.data.articles);
+    } catch (error) {
+      console.error("Failed to fetch news:", error);
+      setError(error.toString());
     }
-    fetchNews();
+  };
+
+  // Fetch US news on component mount
+  useEffect(() => {
+    fetchNews("us");
   }, []);
 
   return (
-    <div className="news-list">
-      <button className="back-button" onClick={onBack}>
-        Back
-      </button>
-      {articles.map((article, index) => (
-        <div className="news-item" key={article.url}>
-          <div className="news-header">
-            <span className="news-number">{index + 1}.</span>
-            <a
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="news-title"
-            >
-              {article.title}
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function App() {
-  const [showNews, setShowNews] = useState(false);
-
-  return (
-    <div className="app">
-      {showNews ? (
-        <News onBack={() => setShowNews(false)} />
-      ) : (
-        <button className="news-button" onClick={() => setShowNews(true)}>
-          Today News
+    <div className="App">
+      <div className="button-group">
+        <button className="button button-jp" onClick={() => fetchNews("jp")}>
+          Today JP
         </button>
+        <button className="button button-cn" onClick={() => fetchNews("cn")}>
+          Today CN
+        </button>
+        <button className="button button-us" onClick={() => fetchNews("us")}>
+          Today US
+        </button>
+      </div>
+      {error ? (
+        <div className="error">{error}</div>
+      ) : (
+        <ul>
+          {news.map((item, index) => {
+            // Split the title into main title and source note
+            let [mainTitle, sourceNote] = item.title.split(/ - | -- | —— /);
+            return (
+              <li key={index}>
+                <a href={item.url} className="title-link">
+                  <span className="title">{mainTitle}</span>
+                  {sourceNote && <span className="note"> - {sourceNote}</span>}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       )}
     </div>
   );

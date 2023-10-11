@@ -49,3 +49,18 @@
 .news-title:hover {
   text-decoration: underline;
 }
+/* ...其他样式 */
+
+.title-link {
+  text-decoration: none;
+  color: inherit; /* This will ensure the link has the same color as the text */
+}
+
+.title {
+  font-family: "Arial", sans-serif; /* Change this to the desired font */
+}
+
+.note {
+  color: #aaa; /* Light grey color */
+  font-size: 0.8em; /* Smaller font size */
+}

@@ -1,0 +1,30 @@
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15%; /* To create a 15% padding around the buttons */
+}
+
+.button {
+  flex: 1;
+  margin: 0 1%; /* To create a small gap between the buttons */
+  padding: 20px;
+  font-size: 18px; /* Increased font size */
+  border: none;
+  cursor: pointer;
+  font-weight: 900; /* Heavier font weight */
+  font-style: italic; /* Italic font style */
+  text-transform: uppercase; /* Convert text to uppercase */
+}
+
+.button-jp {
+  background-color: #ffa07a; /* Light Salmon color */
+}
+
+.button-cn {
+  background-color: #ffd700; /* Gold color */
+}
+
+.button-us {
+  background-color: #87cefa; /* Light Sky Blue color */
+}
