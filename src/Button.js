@@ -9,19 +9,19 @@ function NewsButtons({ onSelectLanguage }) {
         onClick={() => onSelectLanguage("jp")}
         className="button jp-button"
       >
-        today JP
+        Today JP
       </button>
       <button
         onClick={() => onSelectLanguage("cn")}
         className="button cn-button"
       >
-        today CN
+        Today CN
       </button>
       <button
         onClick={() => onSelectLanguage("us")}
         className="button us-button"
       >
-        today US
+        Today US
       </button>
     </div>
   );

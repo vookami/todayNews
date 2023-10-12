@@ -27,17 +27,6 @@ function App() {
 
   return (
     <div className="App">
-      <div className="button-group">
-        <button className="button button-jp" onClick={() => fetchNews("jp")}>
-          Today JP
-        </button>
-        <button className="button button-cn" onClick={() => fetchNews("cn")}>
-          Today CN
-        </button>
-        <button className="button button-us" onClick={() => fetchNews("us")}>
-          Today US
-        </button>
-      </div>
       {error ? (
         <div className="error">{error}</div>
       ) : (
@@ -56,6 +45,17 @@ function App() {
           })}
         </ul>
       )}
+      <div className="button-group">
+        <button className="button button-jp" onClick={() => fetchNews("jp")}>
+          Today JP
+        </button>
+        <button className="button button-cn" onClick={() => fetchNews("cn")}>
+          Today CN
+        </button>
+        <button className="button button-us" onClick={() => fetchNews("us")}>
+          Today US
+        </button>
+      </div>
     </div>
   );
 }
