@@ -2,15 +2,17 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: #f9f9f9; /* 你可以选择你喜欢的颜色 */
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 15%; /* To create a 15% padding around the buttons */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0; /* 添加一些填充以使按钮离背景的边缘有一些空间 */
 }
 
 .button {
   flex: 1;
-  margin: 0 auto; /* To create a small gap between the buttons */
+  margin: 5px auto; /* To create a small gap between the buttons */
   padding: 20px;
   font-size: 18px; /* Increased font size */
   border: none;
