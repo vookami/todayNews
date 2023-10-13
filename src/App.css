@@ -5,20 +5,21 @@
   align-items: center;
 }
 
-.news-list {
-  padding: 20px;
+ul {
+  list-style-type: none;
+  padding: 15px;
   margin: 0 auto; /* 居中列表 */
   max-width: 800px; /* 或任何其他最大宽度 */
   border-radius: 8px; /* 如果需要，可以添加圆角 */
   background-color: #ffffffad; /* 如果需要，可以设置背景颜色 */
   box-sizing: border-box; /* 确保宽度包括内边距和边框 */
   width: 100%;
-  padding-bottom: 60px; /* 或更多，根据需要 */
+  margin-bottom: 70%;
 }
 
 .news-item {
-  border-bottom: 1px solid #dddddd00; /* 在每个新闻项下方添加灰色的线 */
-  padding: 10px 20px; /* 增加一些内边距 */
+  border-bottom: 1px solid #ddd; /* 在每个新闻项下方添加灰色的线 */
+  padding: 5px 5px; /* 增加一些内边距 */
   text-align: left;
 }
 

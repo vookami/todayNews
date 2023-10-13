@@ -35,7 +35,7 @@ function App() {
             // Split the title into main title and source note
             let [mainTitle, sourceNote] = item.title.split(/ - | -- | —— /);
             return (
-              <li key={index}>
+              <li key={index} className="news-item">
                 <a href={item.url} className="title-link">
                   <span className="title">{mainTitle}</span>
                   {sourceNote && <span className="note"> - {sourceNote}</span>}
