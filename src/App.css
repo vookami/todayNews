@@ -18,9 +18,18 @@ ul {
 }
 
 .news-item {
-  border-bottom: 1px solid #ddd; /* 在每个新闻项下方添加灰色的线 */
-  padding: 5px 5px; /* 增加一些内边距 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 5px;
   text-align: left;
+}
+
+.news-item img {
+  width: 150px; /* 你可以根据需要调整这个值 */
+  height: auto; /* 保持图片的纵横比 */
+  margin-right: 20px; /* 添加右边距到图片 */
 }
 
 .news-header {
@@ -46,6 +55,7 @@ ul {
 .title-link {
   text-decoration: none;
   color: inherit;
+  flex-grow: 1; /* 使标题链接能够在需要时扩展 */
 }
 
 .title {

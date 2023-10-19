@@ -37,6 +37,9 @@ function App() {
             let [mainTitle, sourceNote] = item.title.split(/ - | -- | —— /);
             return (
               <li key={index} className="news-item">
+                {item.urlToImage && (
+                  <img src={item.urlToImage} alt={mainTitle} />
+                )}
                 <a href={item.url} className="title-link">
                   <span className="title">{mainTitle}</span>
                   {sourceNote && <span className="note"> - {sourceNote}</span>}
